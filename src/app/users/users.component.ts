@@ -34,7 +34,7 @@ export class UsersComponent implements OnInit {
       .switchMap((value) => this.usersService.searchBy(value))
       .map((users: Users) => {
         if (users.errors) {
-          return this.intialUsersState();
+          return this.intialUsersState(users.errors);
         }
         if (users.items) {
           const size = (users.items.length > 10) ? 10 : users.items.length;
@@ -48,11 +48,12 @@ export class UsersComponent implements OnInit {
       });
   }
 
-  private intialUsersState(): Users {
-    return {
+  private intialUsersState(newError = null): Users {
+    const user = {
       total_count: 0,
       items: null
     };
+    return (newError) ? { ...user, ...{ errors: newError} } : user;
   }
 
 }

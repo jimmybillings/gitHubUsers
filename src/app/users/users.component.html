@@ -3,7 +3,8 @@
       <app-user-search 
         [form]="userForm" 
         [placeHolder]="'Search for github users by user name'"
-        [controlName]="'userName'">
+        [controlName]="'userName'"
+        [errors]="(users | async).errors">
       </app-user-search>
   </mat-card>
   <mat-card *ngIf="users | async as users">

@@ -14,6 +14,7 @@ import { FormGroup } from '@angular/forms';
                 formControlName="{{controlName}}" 
                 required>
             </mat-form-field>
+            <mat-error *ngIf="errors">Invalid User Name</mat-error>
         </form>
     `,
     styles: [`
@@ -28,4 +29,5 @@ export class UserSearchComponent {
     @Input() form: FormGroup;
     @Input() placeHolder: string;
     @Input() controlName: string;
+    @Input() errors: string;
 }
