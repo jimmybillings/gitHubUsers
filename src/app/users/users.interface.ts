@@ -1,6 +1,7 @@
 export interface Users {
     total_count: number;
     items: User[];
+    errors?: any;
 }
 
 export interface User {

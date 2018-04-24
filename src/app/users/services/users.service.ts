@@ -10,6 +10,7 @@ export class UsersService {
 
   public searchBy(userName: string): Observable<Users> {
     return this.http.get(`https://api.github.com/search/users?q=${userName}`)
-      .map((res: Response) => res.json());
+      .map((res: Response) => res.json())
+      .catch((error) => Observable.of(error.json()));
   }
 }

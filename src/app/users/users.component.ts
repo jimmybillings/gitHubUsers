@@ -33,6 +33,9 @@ export class UsersComponent implements OnInit {
       })
       .switchMap((value) => this.usersService.searchBy(value))
       .map((users: Users) => {
+        if (users.errors) {
+          return this.intialUsersState();
+        }
         if (users.items) {
           const size = (users.items.length > 10) ? 10 : users.items.length;
           users.items = users.items.slice(0, size);

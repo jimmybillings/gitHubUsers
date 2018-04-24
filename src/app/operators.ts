@@ -13,3 +13,4 @@ import 'rxjs/add/operator/switchMap';
 // import 'rxjs/add/operator/combineLatest';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/debounceTime';
+import 'rxjs/add/operator/catch'; // don't forget this, or you'll get a runtime error
